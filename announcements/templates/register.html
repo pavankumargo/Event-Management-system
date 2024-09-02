@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}" >
+</head>
+<body>
+    <div class="top-section">
+		<img src="/media/logo.png" alt="Logo">
+		<h1>National Institute Of Technology, Andhra Pradesh</h1>
+	</div>
+    <div class="center-square">
+    <form action="{% url 'register' %}" method="post" enctype="multipart/form-data" name="myForm" onsubmit="return check()">
+        {% csrf_token %}
+        <!-- <input type="number" name="rollno" placeholder="Roll No" required><br>
+        <input type="text" name="first_name" placeholder="First Name" required><br>
+        <input type="text" name="last_name" placeholder="Last Name" required><br>
+        <input type="email" name="email" placeholder="Email_id" required><br>
+        <input type="number" name="mobile" placeholder="Mobile" required><br>
+        <input type="number" name="year" placeholder="Year" required><br>
+        <input type="number" step="0.01" name="cgpa" placeholder="CGPA" required><br>
+        <input type="text" name="dept" placeholder="Department name" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <label for="pic"></label>
+        <input type="file" name="pic"><br>
+        <input type="Submit"> -->
+            <div class="row">
+                <label for="rollnumber">Roll Number:</label>
+                <input type="number" id="rollnumber" name="rollno" required oninput="return formvalid_roll()">
+                
+
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="first_name" required oninput="return formvalid_name()">
+                
+            </div>
+            <div class="row">
+                <span id="vaild-roll"></span>
+                <span id="vaild-name"></span>
+            </div>
+            <div class="row">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="last_name" required oninput="return formvalid_lname()">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required oninput="return formvalid_email()">
+            </div>
+
+            <div class="row">
+                <span id="vaild-lname"></span>
+                <span id="vaild-email"></span>
+            </div>
+
+            <div class="row">
+                <label for="mobile">Mobile Number:</label>
+                <input type="number" id="mobile" name="mobile" required >
+
+                <label for="year">Year:</label>
+                <select class="yeardrop" name="year" id="year">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <span id="vaild-number"></span>
+            </div>
+
+            <div class="row">
+                <label for="cgpa">CGPA:</label>
+                <input type="number" step=”0.01” id="cgpa" name="cgpa" required oninput="return formvalid_cgpa()">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required oninput="return formvalid_password()">
+            </div>
+
+            <div class="row">
+                <span id="vaild-cgpa"></span>
+                <span id="vaild-password"></span>
+            </div>
+
+            <div class="row">
+                <label for="dept">Department:</label>
+                <select class="deptdrop" name="dept" id="dept" required>
+                    <option value="BioTechnology">BioTechnology</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                    <option value="Electrical and communication Engineering">Electrical and communication Engineering</option>
+                    <option value="Electronics and Electrical Engineering">Electronics and Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Metallurgy Engineering">Metallurgy Engineering</option>
+                </select>
+
+                <div id="imagePreview" ></div>
+                <label for="pic">Profile Picture</label>
+                <input type="file" name="pic" id="file" onchange="return fileValidation()"><br>
+            </div>
+            <div class="submit">
+            <input type="submit" name="Submit">
+        </div>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+
+        function formvalid_roll() {
+            var text = document.getElementById("rollnumber").value;
+            let pattern = /^([0-9]{6})*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-roll").innerHTML = "";
+            } else {
+                document.getElementById("vaild-roll").innerHTML = "username should be roll number (123456)";
+                return false;
+            }
+        }
+
+
+        function formvalid_name() {
+            var text = document.getElementById("firstname").value;
+            let pattern = /^[a-z]*[\ ]*[a-z]*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-name").innerHTML = "";
+            } else {
+                document.getElementById("vaild-name").innerHTML = "please use only small alphabets";
+                return false;
+            }
+        }
+
+        function formvalid_lname() {
+            var text = document.getElementById("lastname").value;
+            let pattern = /^[a-z]*[\ ]*[a-z]*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-lname").innerHTML = "";
+            } else {
+                document.getElementById("vaild-lname").innerHTML = "please use only small alphabets";
+                return false;
+            }
+        }
+
+        function formvalid_number() {
+            var text = document.getElementById("mobile").value;
+            let pattern = /^([0=9]{10})*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-number").innerHTML = "";
+            } else {
+                document.getElementById("vaild-number").innerHTML = "please enter a valid number";
+                return false;
+            }
+        }
+
+        function formvalid_email() {
+            var text = document.getElementById("email").value;
+            let pattern = /^([0-9]{6}@student\.nitandhra.ac.in)*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-email").innerHTML = "";
+            } else {
+                document.getElementById("vaild-email").innerHTML = "please use institue mail ids only";
+                return false;
+            }
+        }
+
+        function formvalid_cgpa() {
+            var text = document.getElementById("cgpa").value;
+            let pattern = /^([0-9]{1}\.[0-9]{1}[0-9]{1})*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-cgpa").innerHTML = "";
+            } else {
+                document.getElementById("vaild-cgpa").innerHTML = "please enter cgpa (8.00)";
+                return false;
+            }
+        }
+
+        function formvalid_password() {
+            var vaildpass = document.getElementById("password").value;
+
+            if (vaildpass.length <= 8 || vaildpass.length >= 20) {
+                document.getElementById("vaild-password").innerHTML = "Minimum 8 characters";
+                return false;
+            } else {
+                document.getElementById("vaild-password").innerHTML = "";
+            }
+        }
+
+        function fileValidation() {
+            var fileInput =document.getElementById('file');
+             
+            var filePath = fileInput.value;
+         
+            var allowedExtensions =/(\.jpg|\.jpeg|\.png|\.gif)$/i;
+             
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                document.getElementById('imagePreview').innerHTML='';
+                return false;
+            }
+            else
+            {
+             
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('imagePreview').innerHTML ='<img src="' + e.target.result+ '" style="width : 50px; height :50px;"/>';
+                    };
+                     
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            } 
+        }
+
+    </script>
+
+
+</body>
+</html>

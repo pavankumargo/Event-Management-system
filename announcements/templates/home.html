@@ -1,0 +1,102 @@
+{% load static %}
+<!doctype HTML>
+<html>
+    <head>
+        <title>Events of NITAP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'home.css' %}" />
+    </head>
+    <body>
+        <div class="top-section">
+            <img src="media/logo.png" alt="Logo">
+    
+            <h1>National Institute Of Technology, Andhra Pradesh</h1>
+    
+            <div>
+                <a  class="login-button" href="/login">Login</a>
+            </div>
+        </div>
+
+        <div class= "left-menu"> 
+            <a href="/club/ptm100">Prayatnam</a>
+            <a href="/club/dnd100" >DnD</a>
+            <a href="/club/pnp100" >PnP</a>
+            <a href="/club/lnd100" >LnD</a>
+            <a href="/club/air100" >AInR</a>
+            <a href="/club/eyn100" >E-yantra</a>
+            <a href="/club/ctm100" >Chitram</a>
+        </div>
+
+
+
+        <div class="slideshow-container">
+            {% for e in ev%}
+               <div class="mySlides fade">
+            
+                 <img src="{{e.poster.url}}" style="width:100%; height: 500px;"> 
+                <div class="text">{{e.name}}</div>
+              </div> 
+            {%endfor%}
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            
+            </div>
+              <br>
+            
+              <div style="text-align:center">
+                {% for e in ev%}
+                <span class="dot"></span>
+                {%endfor%}
+              </div>
+            
+              <script>
+              let slideIndex = 1;
+              showSlides(slideIndex);
+            
+              function plusSlides(n) {
+                showSlides(slideIndex += n);
+              }
+            
+              function currentSlide(n) {
+                showSlides(slideIndex = n);
+              }
+            
+              function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+              }
+              </script>
+            
+
+    <div class="middle-section">    
+        <div class="event-container">
+            <div class="event-list">
+                {% for e in ev %}
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p> {{e.club_name}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                </div>
+              </div>
+        {%endfor%}
+    </div>
+    </div>
+    </body>
+</html>

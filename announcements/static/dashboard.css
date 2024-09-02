@@ -1,0 +1,317 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+}
+
+
+.left-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 100px;
+    z-index: 1; /* Set lower z-index value */
+    line-height: 3.5em;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+}
+
+.left-menu a {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 90%;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+  
+  .left-menu a:hover {
+    color: #f1f1f1;
+    background-color:#4CAF50;
+  }
+
+.login-button {
+			padding: 8px 16px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+            margin-left: 90px;
+            margin-top: 25px;
+			font-family: "Poppins", sans-serif;
+            right:10px;
+            position: absolute;
+		}
+
+
+		.top-section {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+
+}
+
+.top-section img {
+			height: 70px;
+			margin-right: 20px;
+      margin-left: 40px;
+
+		}
+
+
+		.middle-section {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.person-container {
+    display: flex;
+    justify-content: left;
+    margin-left: 20%;
+    align-items: left;
+    margin-top: 50px;
+    background-color: #f1f1f1;
+    width: 75%;
+}
+
+
+.person {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    max-width: 800px;
+
+}
+
+/* .person {
+    width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.person img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.person-details {
+    margin-left: 20px;
+    text-align: left;
+    flex: 1;
+    padding: 50px;
+}
+
+.person-details h2 {
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.person-details p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+
+
+.event-container {
+  display: flex;
+  justify-content: left;
+  margin-left: 20%;
+  align-items: left;
+  margin-top: 50px;
+  background-color: #f1f1f1;
+  width: 75%;
+}
+
+.event-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+  max-width: 800px;
+}
+
+.event-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event-details {
+  margin-left: 20px;
+  text-align: left;
+  flex: 1;
+}
+
+.event-details h3 {
+  margin-bottom: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.event-details p {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.2;
+}
+.reg  {
+    margin-right: 75px;
+    background-color: #00b3b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 8px 16px;
+            width: 90%;
+    
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 8%;
+}
+
+
+.home-icon {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-align: left;
+  margin-bottom: 10px;
+  height: 60%;
+  text-align: center;
+  justify-content:center;
+  margin-top: 15%;
+  font-family: "Poppins", sans-serif;
+
+}
+
+* {box-sizing: border-box}
+body {font-family: Poppins, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin-top: 120px;
+  margin-left: 240px;
+}
+
+.slideshow-container h1 {
+    position:relative;
+    text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(23, 2, 2);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: #f1f1f1;
+}
+
+/* Caption text */
+.text {
+  color: #111010;
+  font-size: 50px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}

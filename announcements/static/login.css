@@ -1,0 +1,96 @@
+
+body {
+	background-color: #fff;
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+}
+
+.login-box {
+	background-color: #ccc;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: "Poppins", sans-serif;
+    width: 350px;
+}
+
+
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-radius: 5px;
+	font-family: "Poppins", sans-serif;
+
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+}
+ 
+a {
+   float: left;
+   color: #141212;
+   background-color: rgb(101, 215, 147);
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+   top: 0;
+ }
+
+.link{
+   float:right;
+   top: 0;
+   right: 0;
+   position: absolute;
+} 
+
+.top-section {
+   text-align: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 80px; /* Set height according to your needs */
+   width: 100%; /* Set width equal to the full width of the viewport */
+   background-color: #333;
+   color: #fff;
+   padding: 10px;
+   z-index: 2; /* Set higher z-index value */
+   display: flex;
+   justify-content: flex-start;
+   
+ }
+ 
+.top-section img {
+   height: 70px;
+   margin-right: 20px;
+   margin-left: 40px;
+
+}

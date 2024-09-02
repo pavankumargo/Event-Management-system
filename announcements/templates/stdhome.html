@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype HTML>
+<html>
+    <head>
+        <title>Events of NITAP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <link rel="stylesheet" href="{% static 'std_home.css' %}" />
+    </head>
+    <body>
+        <div class="top-section">
+            <a href="/slogin"><button class="home-icon"><i class="fas fa-home"></i> Home</button></a>
+            <img src="/media/logo.png" alt="Logo">
+            <h1>National Institute Of Technology, Andhra Pradesh</h1>
+            <a href="/dashboard" style="padding-left: 20px;"><button class="home-icon" style="padding-left: 20px;">Dashboard</button></a>
+            <a href="/logout" style="padding-left: 20px;"><button class="home-icon" style="padding-left: 20px;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button></a>
+          
+          </div>
+          
+
+          <div class= "left-menu">
+            <a href="/club/ptm100" class="item">Prayatnam</a>
+            <a href="/club/dnd100" class="item">DnD</a>
+            <a href="/club/pnp100" class="item">PnP</a>
+            <a href="/club/lnd100" class="item">LnD</a>
+            <a href="/club/air100" class="item">AInR</a>
+            <a href="/club/eyn100" class="item">E-yantra</a>
+            <a href="/club/ctm100" class="item">Chitram</a>
+        </div>
+
+        <div class="slideshow-container">
+          {% for e in ev%}
+            <div class="mySlides fade">
+          
+              <img src="{{e.poster.url}}" style="width:100%; height: 500px;">
+              <div class="text"><strong>{{e.name}}</strong></div>
+            </div>
+          {%endfor%}
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+          
+          </div>
+            <br>
+          
+            <div style="text-align:center">
+              {% for e in ev%}
+              <span class="dot"></span>
+              {%endfor%}
+            </div>
+          
+            <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+          
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+          
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+          
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+            }
+            </script>
+
+
+
+
+        <div class="middle-section">   
+        <div class="event-container">
+            <div class="event-list">
+                {% for e in ev %}
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p> {{e.club_name}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                  <a href="/event_register/{{e.event_id}}"><button class="reg">Register</button></a>
+                </div>
+              </div>
+        {%endfor%}
+    </div>
+    </div>
+        </div>
+    </body>
+</html>

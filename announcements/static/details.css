@@ -1,0 +1,297 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+  .left-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 100px;
+    z-index: 1; /* Set lower z-index value */
+    line-height: 3.5em;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  
+  
+  }
+  
+  
+  .left-menu a {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 80%;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 8px;
+  }
+  
+    .left-menu a:hover {
+      color: #f1f1f1;
+      background-color:#4CAF50;
+    }
+  
+  
+    .top-section {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 80px; /* Set height according to your needs */
+      width: 100%; /* Set width equal to the full width of the viewport */
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      z-index: 2; /* Set higher z-index value */
+      display: flex;
+      justify-content: center;
+      
+    }
+    
+   .top-section img {
+      height: 70px;
+      margin-right: 20px;
+      margin-left: 40px;
+   
+   }
+   
+   .home-icon {
+       background-color: #4CAF50;
+       color: white;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       padding: 8px 16px;
+       text-align: left;
+       margin-bottom: 10px;
+       height: 60%;
+       text-align: center;
+       justify-content:center;
+       margin-top: 15%;
+       font-family: "Poppins", sans-serif;
+   
+   }
+   
+   
+   
+   .l1 {
+       background-color: #4CAF50;
+       color: white;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       padding: 8px 16px;
+       text-align: left;
+       margin-bottom: 10px;
+       height: 60%;
+       width:100%;
+       text-align: center;
+       justify-content:center;
+       margin-top: 15%;
+       margin-left: 20%;
+       font-family: "Poppins", sans-serif;
+   }
+   
+   
+   .l2 {
+       background-color: #4CAF50;
+       color: white;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       padding: 8px 16px;
+       text-align: left;
+       margin-bottom: 10px;
+       height: 60%;
+       width:100%;
+       text-align: center;
+       justify-content:center;
+       margin-top: 15%;
+       margin-left: 35%;
+       font-family: "Poppins", sans-serif;
+       padding: 25px;
+   }
+  
+  
+  
+  
+      .middle-section {
+    text-align: center;
+    margin-top: 120px;
+  }
+  
+  
+  .person-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+  }
+  
+  
+  
+  
+  .person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    max-width: 150px;
+  
+  
+  }
+  
+  
+  .person-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .person-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  
+  
+  .person-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
+  .person-details h2 {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  
+  .person-details p {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  
+  
+  
+  
+  
+  
+  .event-container {
+    display: flex;
+    justify-content: left;
+    margin-left: 20%;
+    align-items: left;
+    margin-top: 50px;
+    background-color: #f1f1f1;
+    width: 75%;
+  }
+  
+  
+  .event-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    max-width: 800px;
+  }
+  
+  
+  .event-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  .event-details {
+    margin-left: 20px;
+    text-align: left;
+    flex: 1;
+  }
+  
+  
+  .event-details h3 {
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  
+  .event-details p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.2;
+  }
+  
+  
+  .home-icon {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: left;
+    margin-bottom: 10px;
+    height: 60%;
+    text-align: center;
+    justify-content:center;
+    margin-top: 15%;
+    font-family: "Poppins", sans-serif;
+  
+  
+  }
+  
+  .item {
+  
+                 background-color: #00b3b3;
+                         color: white;
+                         border: none;
+                         border-radius: 4px;
+                         cursor: pointer;
+                         padding: 8px 16px;
+                         width: 30%;
+                 text-align: center;
+                 margin-bottom: 10px;
+                 font-family: "Poppins", sans-serif;
+  
+  
+             }
+  

@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cl.club_name}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'clubs.css' %}">
+    
+</head>
+<body>
+
+    <div class="top-section">
+      {% if user.is_authenticated %}
+      <a href="/slogin"><button class="home-icon"><i class="fas fa-home"></i> Home</button></a>
+      {% else %}
+      <a href="/"><button class="home-icon"><i class="fas fa-home"></i> Home</button></a>
+      {% endif %}
+      <img src="/media/logo.png" alt="Logo">
+
+		<h1>National Institute Of Technology, Andhra Pradesh</h1>
+
+        <div>
+          {% if user.is_authenticated %}
+          <a  class="login-button" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>logout</a>
+          {% else %}
+			    <a class="login-button" href="/login">login</a>
+          {% endif %}
+		</div>
+	</div>
+
+    <div class= "left-menu">
+        <a href="/club/ptm100" class="item">Prayatnam</a>
+        <a href="/club/dnd100" class="item">DnD</a>
+        <a href="/club/pnp100" class="item">PnP</a>
+        <a href="/club/lnd100" class="item">LnD</a>
+        <a href="/club/air100" class="item">AInR</a>
+        <a href="/club/eyn100" class="item">E-yantra</a>
+        <a href="/club/ctm100" class="item">Chitram</a>
+    </div>
+
+{% if evp is not None%}
+    <div class="slideshow-container">
+{% for ex in evp%}
+  <div class="mySlides fade">
+
+    <img src="{{ex.pic.url}}" style="width:100%; height: 500px;">
+    <div class="text">{{ex.event_name}}</div>
+  </div>
+{%endfor%}
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+  <br>
+
+  <div style="text-align:center">
+    {% for ex in evp%}
+    <span class="dot"></span>
+    {%endfor%}
+  </div>
+{% endif %}
+  <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+
+
+
+
+
+<div class="middle-section">
+    <h1>{{cl.club_name}}</h1>
+   
+
+
+    <div class="event-container">
+        <div class="event-list">
+          <h2>Upcoming events</h2>
+            {% for e in ev %}
+          <div class="event-item">
+            <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+            <div class="event-details">
+              <h3>{{e.name}}</h3>
+              <p> {{e.task}} </p><br>
+              <p><strong>Date: {{e.date}}</strong></p>
+              <p><strong>Time: {{e.time}}</strong></p>
+              <p><strong>Venue: {{e.venue}}</strong></p>
+            </div>
+          </div>
+    {%endfor%}
+    <h2>Completed events</h2>
+                {% for e in evc %}
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                  <br>
+                </div>
+              </div>
+        {%endfor%}
+</div>
+</div>
+<h1>Club members</h1>
+
+<div class="person-container">
+    {% for st in stus %}
+    <div class="person">
+      <div class="person-image">
+        <img src="{{st.0.pic.url}}" alt="person">
+      </div>
+      <div class="person-details">
+        <h2>{{st.0.first_name}}</h2>
+        <p>{{st.1}}</p>
+      </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+</body>
+</html>

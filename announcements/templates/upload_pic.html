@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'uppic.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'upload_pic' %}" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if user.is_authenticated %}   
+        <div class="details-update">
+        <label><strong>UPLOAD PHOTO</strong></label>
+        <div id="imagePreview" ></div>
+        <input type="file" name="pic" onchange="return fileValidation()" id="file" required><br>
+        <button type="Submit" name="update" class="item" >Update</button>
+        {%endif%}
+    </div>
+    </form>
+
+    <script>
+        function fileValidation() {
+            var fileInput =document.getElementById('file');
+             
+            var filePath = fileInput.value;
+         
+            var allowedExtensions =/(\.jpg|\.jpeg|\.png|\.gif)$/i;
+             
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+            else
+            {
+             
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('imagePreview').innerHTML ='<img src="' + e.target.result+ '" />';
+                    };
+                     
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            } 
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cl.club_name}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'club_home.css' %}">
+
+</head>
+<body>
+    <div class="top-section">
+        <img src="/media/logo.png" alt="Logo">
+
+          <h1>National Institute Of Technology, Andhra Pradesh</h1>
+
+          <div>
+              <a  class="login-button" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+          </div>
+      </div>
+
+      <div class="middle-section">
+        <h1>{{cl.club_name}}</h1>
+        <div class="event-container">
+            <div class="event-list">
+              <h2>Upcoming events</h2>
+                {% for e in evp %}
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                  <br>
+                  <div class="bt">
+                    <a href="/mark_complete/{{e.event_id}}"><button class="reg">MArk as complete</button></a>
+                    <br>
+                    <a href="/view_details/{{e.event_id}}"><button class="reg">View details</button></a>
+                    <br>
+                  </div>
+                </div>
+              </div>
+        {%endfor%}
+        <h2>Completed events</h2>
+                {% for e in evc %}
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                  <br>
+                  <div class="bt">
+                  <a href="/uppic/{{e.event_id}}"><button class="reg">Upload a pic</button></a>
+                  <br>
+                  <a href="/view_details/{{e.event_id}}"><button class="reg">View details</button></a>
+                  <br>
+                </div>
+                </div>
+              </div>
+        {%endfor%}
+    </div>
+    </div>
+
+    
+        
+        <h1>Club members</h1>
+
+        <div class="person-container">
+  {% for st in mems %}
+    <div class="person">
+      <div class="person-image">
+        <img src="{{st.0.pic.url}}" alt="person">
+      </div>
+      <div class="person-details">
+        <h2>{{st.0.first_name}}</h2>
+        <p>{{st.1}}</p>
+      </div>
+    </div>
+  {% endfor %}
+  <div class="person">
+    <div class="person-image">
+      <a href="add_member" class="add-member-link"><i class="fas fa-plus"></i></a>
+    </div>
+    <div class="person-details">
+      <h2>Add a member</h2>
+    </div>
+  </div>
+</div>
+
+
+
+    <a href="create_event/{{cl.club_id}}"><button class="item">Announce An Event</button></a>
+
+
+
+
+
+</body>
+</html>

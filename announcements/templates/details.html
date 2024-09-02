@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cl.club_name}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+</head>
+<body>
+    <div class="top-section">
+      <a href="/clogin"><button class="home-icon"><i class="fas fa-home"></i> Home</button></a>  
+        <img src="/media/logo.png" alt="Logo">
+  
+          <h1>National Institute Of Technology, Andhra Pradesh</h1>
+  
+          <a href="/upd_event/{{e.event_id}}"><button class="l1">update_details</button></a>
+          <a href="/logout"><button class="l2"><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</button></a>
+      </div>
+
+   
+    <div class="middle-section">
+        <h1>{{cl.club_name}}</h1>
+        <h1>Club members</h1>
+    
+
+    
+    
+        <div class="event-container">
+            <div class="event-list">
+              <div class="event-item">
+                <img style="height: 173px; width: 173px;" src="{{e.poster.url}}" alt="Event 1">
+                <div class="event-details">
+                  <h3>{{e.name}}</h3>
+                  <p> {{e.task}} </p><br>
+                  <p><strong>Date: {{e.date}}</strong></p>
+                  <p><strong>Time: {{e.time}}</strong></p>
+                  <p><strong>Venue: {{e.venue}}</strong></p>
+                </div>
+              </div>
+            </div>
+    </div>
+<div>
+      <table style="border-collapse: collapse; width: 100%; margin-top: 20px; background-color: #9c7fb3;">
+<thead>
+  <tr style="border: 1px solid black; height: 40px;">
+    <th style="border: 1px solid black;">Photo</th>
+    <th style="border: 1px solid black;">Name</th>
+    <th style="border: 1px solid black;">Year</th>
+    <th style="border: 1px solid black;">Email</th>
+  </tr>
+</thead>
+<tbody>
+  {% for s in st %}
+  <tr style="border: 1px solid black; height: 60px; text-align:center; background-color: #f1f1f1;">
+    <td style="border: 1px solid black;"><img src="{{s.pic.url}}" alt="pic" style="height: 200px; width: 200px;"></td>
+    <td style="border: 1px solid black;">{{s.first_name}} {{s.last_name}}</td>
+    <td style="border: 1px solid black;">{{s.year}}</td>
+    <td style="border: 1px solid black;">{{s.email}}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+
+
+  </div>
+
+
+
+
+</body>
+</html>

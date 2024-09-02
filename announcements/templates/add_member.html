@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'add.css' %}" />
+    <title>Add a member</title>
+</head>
+<body>
+    <form action="/add_member" method="post">
+        {% csrf_token %}
+        <h1>Enter member details</h1>
+        <input type="number" name="rollno" placeholder="roll_number" required id="rollnumber" oninput="return formvalid_roll()">
+        <span id="vaild-roll"></span>
+        <select name="position" id="" required>
+            <option value="Executive Member">Executive member</option>
+            <option value="Seceretary">Seceretary</option>
+            <option value="Joint seceretary">Joint Seceretary</option>
+        </select>
+        <button type="submit" class="item">Add</button>
+    </form>
+
+    <script>
+        function formvalid_roll() {
+            var text = document.getElementById("rollnumber").value;
+            let pattern = /^([0-9]{6})*$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-roll").innerHTML = "";
+            } else {
+                document.getElementById("vaild-roll").innerHTML = "Enter registered member's roll number (123456)";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

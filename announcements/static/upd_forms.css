@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+    .top-section img {
+                height: 70px;
+                margin-right: 20px;
+                margin-left: 40px;
+
+            }
+            .top-section {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+
+    }
+    .item {
+
+        background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                padding: 8px 16px;
+                width: 90%;
+        text-align: left;
+        margin-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+
+    }
+.home-icon {
+background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: left;
+    margin-bottom: 10px;
+    height: 60%;
+text-align: center;
+justify-content:center;
+margin-top: 15%;
+font-family: "Poppins", sans-serif;
+
+}
+
+.logout {
+background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: left;
+    margin-bottom: 10px;
+    height: 60%;
+    width:100%;
+text-align: center;
+justify-content:center;
+margin-top: 15%;
+margin-left: 35%;
+font-family: "Poppins", sans-serif;
+}
+
+.edit {
+background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    text-align: left;
+    margin-bottom: 10px;
+    height: 60%;
+    width:100%;
+text-align: center;
+justify-content:center;
+margin-top: 15%;
+margin-left: 20%;
+font-family: "Poppins", sans-serif;
+}
+
+    .left-menu {
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 220px;
+background-color: #f1f1f1;
+overflow-x: hidden;
+padding-top: 100px;
+z-index: 1;
+line-height: 3.5em;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+}
+
+.middle-section {
+margin-left: 22%;
+margin-top: 10%;
+width: 70%;
+}
+
+.details-update {
+background-color: #f2f2f2;
+padding: 20px;
+border-radius: 5px;
+}
+
+.details-update input[type="text"],
+.details-update input[type="number"],
+.details-update input[type="password"],
+.details-update input[type="tel"],
+.details-update input[type="file"],
+.details-update button {
+width: 80%;
+padding: 10px;
+margin-bottom: 10px;
+border: none;
+border-radius: 5px;
+}
+
+.details-update label {
+font-weight: bold;
+margin-bottom: 10px;
+display: block;
+}
+
+.details-update button {
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+width: 10%;
+}
+
+.details-update button:hover {
+background-color: #3e8e41;
+}
+
+.details-update button[type="submit"] {
+float: left;
+margin-right: 10px;
+}
+
+.details-update button[type="button"] {
+float: right;
+margin-left: 10px;
+}
+
+.btnn {
+margin-left: 10%;
+margin-top: 0%;
+width: 60%;
+display: flex;
+justify-content: space-between;
+
+}
+
+.yeardrop {
+
+    width: 80%;
+padding: 10px;
+margin-bottom: 10px;
+border: none;
+border-radius: 5px;
+}
+
+.btnn button {
+margin-right: 75px;
+   background-color: #00b3b3;
+           color: white;
+           border: none;
+           border-radius: 4px;
+           cursor: pointer;
+           padding: 8px 16px;
+           width: 90%;
+   /* <!-- text-align: center; --> */
+   margin-bottom: 10px;
+   font-family: "Poppins", sans-serif;
+
+}
+
+span {
+    color: red;
+    margin: 10px 0;
+    font-size: 14px;
+  }

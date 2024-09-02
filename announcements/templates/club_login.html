@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'login1.css' %}" >
+    <title>login</title>
+</head>
+<body>
+    <div class="top-section">           
+        <a href="/"><button class="home-icon"><i class="fas fa-home"></i> Home</button></a>    
+        <img src="/media/logo.png" alt="Logo">   
+        <h1>National Institute Of Technology, Andhra Pradesh</h1>
+        <!-- <div class="link">               
+            <a  href="/club_login">club_login</a>
+            <a  href="/register" >SignUp</a>
+        </div> -->
+        <a href="/login"><button class="l2">student_login</button></a>
+    </div>
+    <div class="container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form action="{% url 'club_login' %}" method="post" >
+                {% csrf_token %}
+                <label for="username">Club_id:</label>
+                <input type="text" id="username" name="username" oninput="return formvalidid()" required>
+                <span id="vaild-id"></span>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" oninput="return formvalid()" required>
+                <img src="https://cdn2.iconfinder.com/data/icons/basic-ui-interface-v-2/32/hide-512.png" onclick="show()" id="showimg">
+                <span id="vaild-pass"></span>
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function formvalidid() {
+            var text = document.getElementById("username").value;
+            let pattern = /^[a-z]{3}[0|1]{3}$/;
+            let result = pattern.test(text);
+            if (result) {
+                document.getElementById("vaild-id").innerHTML = "";
+            } else {
+                document.getElementById("vaild-id").innerHTML = "Club id should be of form abc123";
+                return false;
+            }
+        }
+
+
+        function formvalid() {
+            var vaildpass = document.getElementById("password").value;
+
+            if (vaildpass.length <= 8 || vaildpass.length >= 20) {
+                document.getElementById("vaild-pass").innerHTML = "Minimum 8 characters";
+                return false;
+            } else {
+                document.getElementById("vaild-pass").innerHTML = "";
+            }
+        }
+
+        function show() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+                document.getElementById("showimg").src ="https://static.thenounproject.com/png/777494-200.png";
+            } else {
+                x.type = "password";
+                document.getElementById("showimg").src ="https://cdn2.iconfinder.com/data/icons/basic-ui-interface-v-2/32/hide-512.png";
+            }
+        }
+
+    </script>
+</body>
+</html>
